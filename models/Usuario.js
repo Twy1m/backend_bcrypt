@@ -26,6 +26,6 @@ const Usuario = db.define(
     timeStamps: true,
     tableName: "usuario",
   },
-)
+);
 
 module.exports = Usuario;
