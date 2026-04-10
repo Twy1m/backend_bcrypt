@@ -46,6 +46,11 @@ const login = async (rec, res) => {
     if (!senhaCorreta) {
       return res.status(401).json({ message: "Senha incorreta" });
     }
+    const valores = rec.body;
+    const { cod, nome, email } = user;
+    const payload = { cod, nome, email }
+    
+    const token = genereteToken(payload)
 
     res.status(200).json({ message: "Login realizado com sucesso!" });
   } catch (err) {

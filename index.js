@@ -7,6 +7,7 @@ const hostname = "localhost";
 
 const conn = require("./db/conn");
 const usuarioController = require("./controller/usuario.controller");
+const autenticar = require("./middleware/auth")
 
 //------MiddleWare-----
 
@@ -18,6 +19,8 @@ app.use(cors());
 
 app.post("/usuarios", usuarioController.cadastrar);
 app.get("/usuarios", usuarioController.listar);
+
+app.get("/usuarios", autenticar, usuarioController.listar)
 
 app.get("/", (rec, res) => {
   res.status(200).json({ message: "aplicação rodando" });
