@@ -17,10 +17,10 @@ app.use(cors());
 
 //---------------------
 
+app.post("/login", usuarioController.login);
 app.post("/usuarios", usuarioController.cadastrar);
-app.get("/usuarios", usuarioController.listar);
-
 app.get("/usuarios", autenticar, usuarioController.listar)
+
 
 app.get("/", (rec, res) => {
   res.status(200).json({ message: "aplicação rodando" });

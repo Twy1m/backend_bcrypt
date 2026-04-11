@@ -1,4 +1,4 @@
-const DataTypes = require("sequelize");
+const { DataTypes } = require("sequelize");
 const db = require("../db/conn");
 
 const Usuario = db.define(
@@ -11,7 +11,7 @@ const Usuario = db.define(
     },
     nome: {
       type: DataTypes.STRING(40),
-      alowNull: false,
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING(100),
@@ -23,8 +23,7 @@ const Usuario = db.define(
     },
   },
   {
-    timeStamps: true,
-    tableName: "usuario",
+    timeStamps: true
   },
 );
 
